@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#176b5b">
+  <meta name="description" content="A simple personal medicine and supplement tracker.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <title>DailyTrack</title>
+</head>
+<body>
+  <header class="topbar">
+    <div><p class="eyebrow">YOUR DAILY ROUTINE</p><h1>DailyTrack</h1></div>
+    <button id="backupBtn" class="secondary">Backup / Restore</button>
+  </header>
+  <main>
+    <section class="summary">
+      <div><p class="muted">Today's progress</p><h2 id="progressText">0 of 0 completed</h2></div>
+      <div class="progress-track"><div id="progressBar" class="progress-fill"></div></div>
+    </section>
+    <section class="section-head"><h2>Today's schedule</h2><button id="addBtn">+ Add item</button></section>
+    <section id="schedule" class="schedule" aria-live="polite"></section>
+    <section class="section-head history-head"><h2>Recent activity</h2></section>
+    <section id="history" class="history"></section>
+  </main>
+
+  <dialog id="itemDialog">
+    <form id="itemForm" method="dialog">
+      <div class="dialog-head"><h2 id="formTitle">Add medicine or supplement</h2><button type="button" class="icon-btn" id="closeItem">✕</button></div>
+      <input type="hidden" id="itemId">
+      <label>Name<input id="name" required maxlength="80" placeholder="e.g. Vitamin D3"></label>
+      <div class="two-col">
+        <label>Dosage<input id="dosage" maxlength="50" placeholder="e.g. 1 tablet"></label>
+        <label>Scheduled time<input id="time" type="time" required value="08:00"></label>
+      </div>
+      <div class="two-col">
+        <label>Start date<input id="startDate" type="date" required></label>
+        <label>End date (optional)<input id="endDate" type="date"></label>
+      </div>
+      <label>Notes (optional)<textarea id="notes" rows="2" maxlength="240" placeholder="Any instructions"></textarea></label>
+      <p id="formError" class="error" role="alert"></p>
+      <div class="actions"><button type="button" class="secondary" id="cancelItem">Cancel</button><button type="submit">Save item</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="backupDialog">
+    <div class="dialog-head"><h2>Backup and restore</h2><button class="icon-btn" id="closeBackup">✕</button></div>
+    <p class="muted">Your data is stored in this browser on this device. Export a backup regularly.</p>
+    <button id="exportBtn" class="wide">Export backup (.json)</button>
+    <label class="file-label">Restore from backup<input id="importFile" type="file" accept="application/json,.json"></label>
+    <p id="backupMessage" class="muted" role="status"></p>
+  </dialog>
+  <script src="app.js" defer></script>
+</body>
+</html>

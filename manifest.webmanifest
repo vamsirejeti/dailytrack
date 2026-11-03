@@ -1,0 +1,10 @@
+{
+  "name": "DailyTrack",
+  "short_name": "DailyTrack",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f4f7f5",
+  "theme_color": "#176b5b",
+  "description": "Personal medicine and supplement tracker",
+  "icons": []
+}
