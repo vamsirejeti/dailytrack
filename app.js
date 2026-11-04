@@ -43,7 +43,7 @@
       info.append(title, detail, status);
       const actions = document.createElement("div"); actions.className = "item-actions";
       if (!log) {
-        actions.append(makeButton("Taken", "small", () => setStatus(item.id, "taken")), makeButton("Skip", "small secondary", () => setStatus(item.id, "skipped")));
+        actions.append(makeButton("Taken", "small secondary", () => setStatus(item.id, "taken")), makeButton("Skip", "small secondary", () => setStatus(item.id, "skipped")));
       } else {
         actions.append(makeButton("Undo", "small secondary", () => undo(item.id)));
       }
